@@ -14,13 +14,14 @@ h3. Respond-to-field Change
 
 p. We would like each member in the band to have the respond-to field set to the worship leader for the week they're scheduled for. We have one main rota administrator, so currently it automatically gets set to that. This project will go through all the future plans, find out who's the worship leader for each plan, then update the "respond-to" field for each member of the band. This sub project won't be finished for a while because the _API_ doesn't allow you to write back to plans.xml, however, I believe it will in the future. I'm going to set up the code so that hopefully as soon as the _API_ allows writing to the plan.xml, this project should be ready to go.
 
-h3 iPhone Web App
+h3. iPhone Web App
 
 p. This will allow you to search on a username and find out all the future rota slots they are scheduled for. This is based on a previous project I wrote for website we used before Planning Center Online.
 
 h2. Files Included
 
 h3. Directory Structure/Files Description
+
 @/@
 @|- index.php@ - Will be a welcome (home) page. Will explain details of the site. Will have login/logout options.
 @|- start_auth.php@ - Starts the authorization process.
@@ -31,16 +32,20 @@ h3. Directory Structure/Files Description
 @|- no_rota_slots.php@ - Generates a sortable report of number of rota slots.
 @|- list_future_plans.php@ - Generates a list of service plans available for use with @respond_to_change.php@.
 @|- respond_to_change.php@ - Changes the respond_to field on each of the plans selected in @list_future_plans.php@.
+
 @|- include/@
-@|--- .gitignore @ - Will contain entries for keys.inc.php and db.inc.php which contain private details.
-@|--- keys.inc.php @ - Contains the Keys registered to "Johnny Sheppard". This file will not be uploaded to GitHub.
-@|--- db.inc.php @ - Database connection file. Will not be uploaded to GitHub.
+@|--- .gitignore@ - Will contain entries for keys.inc.php and db.inc.php which contain private details.
+@|--- keys.inc.php@ - Contains the Keys registered to "Johnny Sheppard". This file will not be uploaded to GitHub.
+@|--- db.inc.php@ - Database connection file. Will not be uploaded to GitHub.
 @|--- check_logged_in.php@ - Checks to see if a user is logged in, and either helps them log in, or displays an error. Also contains a function to check to see if the account is linked to planning center. Helps deal with connecting the account if needed.
 @|--- global_vars.inc.php@ - Contains global vars
+
 @|- js/@
 @|--- jquery.js/@ - jquery core file.
+
 @|- css/@
 @|--- main.css/@ - main css file.
+
 @|- extras/@ - Directory with bits and pieces that aren't actual script files, but needed to set the website up.
 @|--- mysql_schema.sql@ - Contains the default schema for the mysql database.
 
