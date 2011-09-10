@@ -21,26 +21,26 @@ p. This will allow you to search on a username and find out all the future rota 
 h2. Files Included
 
 h3. Directory Structure/Files Description
-<br>@/@
-<br>@|- index.php@ #Will be a welcome (home) page. Will explain details of the site. Will have login/logout options.
-<br>@|- start_auth.php@ # Starts the authorization process.
-<br>@|- complete_auth.php@ # Completes the authorization process and hands back to the page that called @start_auth.php.
-<br>@|- login_display.php@ # Display's the login page.
-<br>@|- login.php@ # logs the user in and hands back to the calling page.
-<br>@|- logout.php@ # logs the user out and hands back to the calling page.
-<br>@|- no_rota_slots.php@ # Generates a sortable report of number of rota slots.
-<br>@|- list_future_plans.php@ # Generates a list of service plans available for use with @respond_to_change.php@.
-<br>@|- respond_to_change.php@ # Changes the respond_to field on each of the plans selected in @list_future_plans.php@.
-<br>@|- include/@
-<br>@|--- .gitignore @# Will contain entries for keys.inc.php and db.inc.php which contain private details.
-<br>@|--- keys.inc.php @# Contains the Keys registered to "Johnny Sheppard". This file will not be uploaded to GitHub.
-<br>@|--- db.inc.php @# Database connection file. Will not be uploaded to GitHub.
-<br>@|--- check_logged_in.php@ # Checks to see if a user is logged in, and either helps them log in, or displays an error. Also contains a function to check to see if the account is linked to planning center. Helps deal with connecting the account if needed.
-<br>@|--- global_vars.inc.php@ # Contains global vars
-<br>@|- js/@
-<br>@|--- jquery.js/@ # jquery core file.
-<br>@|- css/@
-<br>@|--- main.css/@ # main css file.
-<br>@|- extras/@ # Directory with bits and pieces that aren't actual script files, but needed to set the website up.
-<br>@|--- mysql_schema.sql@ # Contains the default schema for the mysql database.
+@/@
+@|- index.php@ - Will be a welcome (home) page. Will explain details of the site. Will have login/logout options.
+@|- start_auth.php@ - Starts the authorization process.
+@|- complete_auth.php@ - Completes the authorization process and hands back to the page that called @start_auth.php@.
+@|- login_display.php@ - Display's the login page.
+@|- login.php@ - logs the user in and hands back to the calling page.
+@|- logout.php@ - logs the user out and hands back to the calling page.
+@|- no_rota_slots.php@ - Generates a sortable report of number of rota slots.
+@|- list_future_plans.php@ - Generates a list of service plans available for use with @respond_to_change.php@.
+@|- respond_to_change.php@ - Changes the respond_to field on each of the plans selected in @list_future_plans.php@.
+@|- include/@
+@|--- .gitignore @ - Will contain entries for keys.inc.php and db.inc.php which contain private details.
+@|--- keys.inc.php @ - Contains the Keys registered to "Johnny Sheppard". This file will not be uploaded to GitHub.
+@|--- db.inc.php @ - Database connection file. Will not be uploaded to GitHub.
+@|--- check_logged_in.php@ - Checks to see if a user is logged in, and either helps them log in, or displays an error. Also contains a function to check to see if the account is linked to planning center. Helps deal with connecting the account if needed.
+@|--- global_vars.inc.php@ - Contains global vars
+@|- js/@
+@|--- jquery.js/@ - jquery core file.
+@|- css/@
+@|--- main.css/@ - main css file.
+@|- extras/@ - Directory with bits and pieces that aren't actual script files, but needed to set the website up.
+@|--- mysql_schema.sql@ - Contains the default schema for the mysql database.
 
