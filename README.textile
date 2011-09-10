@@ -1,0 +1,46 @@
+h1. St John's Planning Center Extras
+
+p. This is some code to create a few features that we at St Johns would like to use with our "Planning Center Online":http://get.planningcenteronline.com Data. The code makes use of their _API_. To find out more about their _API_, please click "here":http://get.planningcenteronline.com/api/general-details.  
+
+p. This project is likely to be a work in progress for quite a while. I'm writing these extra features because my wife is the current rota administrator, and I wanted to help her out with some helpful additions. It will also contain an iphone web app which allows you to search on a username and find out all the future rota slots they are scheduled for. It may contain an ical export script that sets up calendar entries including the full band line up in the description field. This was something I wrote that linked to our previous website and took a csv file to enter the data. This might not end up being set up however as planning center 
+
+h2. Description of Sub-Projects
+
+h3. Number of Rota Slots
+
+p. This will draw up a report of number of services a person has been rota'd on for. This can almost be done in planning centers liquid template language, but the way we use planning center, a person could be on a plan more than once, so that all their roles are defined (eg a Worship leader is also a singer and piano player = 3 entries), and planning center's template would count all of these, even though it's still only one service. We want a report that only counts one entry per service. This is used by the rota administrator to make sure people aren't being over used in a term. (so as not to burn them out :-)
+
+h3. Respond-to-field Change
+
+p. We would like each member in the band to have the respond-to field set to the worship leader for the week they're scheduled for. We have one main rota administrator, so currently it automatically gets set to that. This project will go through all the future plans, find out who's the worship leader for each plan, then update the "respond-to" field for each member of the band. This sub project won't be finished for a while because the _API_ doesn't allow you to write back to plans.xml, however, I believe it will in the future. I'm going to set up the code so that hopefully as soon as the _API_ allows writing to the plan.xml, this project should be ready to go.
+
+h3 iPhone Web App
+
+p. This will allow you to search on a username and find out all the future rota slots they are scheduled for. This is based on a previous project I wrote for website we used before Planning Center Online.
+
+h2. Files Included
+
+h3. Directory Structure/Files Description
+<br>@/@
+<br>@|- index.php@ #Will be a welcome (home) page. Will explain details of the site. Will have login/logout options.
+<br>@|- start_auth.php@ # Starts the authorization process.
+<br>@|- complete_auth.php@ # Completes the authorization process and hands back to the page that called @start_auth.php.
+<br>@|- login_display.php@ # Display's the login page.
+<br>@|- login.php@ # logs the user in and hands back to the calling page.
+<br>@|- logout.php@ # logs the user out and hands back to the calling page.
+<br>@|- no_rota_slots.php@ # Generates a sortable report of number of rota slots.
+<br>@|- list_future_plans.php@ # Generates a list of service plans available for use with @respond_to_change.php@.
+<br>@|- respond_to_change.php@ # Changes the respond_to field on each of the plans selected in @list_future_plans.php@.
+<br>@|- include/@
+<br>@|--- .gitignore @# Will contain entries for keys.inc.php and db.inc.php which contain private details.
+<br>@|--- keys.inc.php @# Contains the Keys registered to "Johnny Sheppard". This file will not be uploaded to GitHub.
+<br>@|--- db.inc.php @# Database connection file. Will not be uploaded to GitHub.
+<br>@|--- check_logged_in.php@ # Checks to see if a user is logged in, and either helps them log in, or displays an error. Also contains a function to check to see if the account is linked to planning center. Helps deal with connecting the account if needed.
+<br>@|--- global_vars.inc.php@ # Contains global vars
+<br>@|- js/@
+<br>@|--- jquery.js/@ # jquery core file.
+<br>@|- css/@
+<br>@|--- main.css/@ # main css file.
+<br>@|- extras/@ # Directory with bits and pieces that aren't actual script files, but needed to set the website up.
+<br>@|--- mysql_schema.sql@ # Contains the default schema for the mysql database.
+
