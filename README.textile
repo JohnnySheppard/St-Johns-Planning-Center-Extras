@@ -48,4 +48,5 @@ h3. Directory Structure/Files Description
 
 @|- extras/@ - Directory with bits and pieces that aren't actual script files, but needed to set the website up.
 @|--- mysql_schema.sql@ - Contains the default schema for the mysql database.
+@|--- quick_register.php@ - Script to quickly register a new user. Details are hard coded into the script.
 
