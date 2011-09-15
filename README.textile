@@ -25,7 +25,7 @@ h3. Directory Structure/Files Description
 @/@
 @|- index.php@ - Will be a welcome (home) page. Will explain details of the site. Will have login/logout options.
 @|- start_auth.php@ - Starts the authorization process.
-@|- complete_auth.php@ - Completes the authorization process and hands back to the page that called @start_auth.php@.
+
 @|- login_display.php@ - Display's the login page.
 @|- login.php@ - logs the user in and hands back to the calling page.
 @|- logout.php@ - logs the user out and hands back to the calling page.
@@ -37,8 +37,11 @@ h3. Directory Structure/Files Description
 @|--- .gitignore@ - Will contain entries for keys.inc.php and db.inc.php which contain private details.
 @|--- keys.inc.php@ - Contains the Keys registered to "Johnny Sheppard". This file will not be uploaded to GitHub.
 @|--- db.inc.php@ - Database connection file. Will not be uploaded to GitHub.
-@|--- check_logged_in.php@ - Checks to see if a user is logged in, and either helps them log in, or displays an error. Also contains a function to check to see if the account is linked to planning center. Helps deal with connecting the account if needed.
+@|--- check_logged_in.php@ - Has functions which check to see if a user is logged in, and either helps them log in, or displays an error. Also contains a function to check to see if the account is linked to planning center. Helps deal with connecting the account if needed.
 @|--- global_vars.inc.php@ - Contains global vars
+@|--- OAuth.php.php@ - Contains OAuth library
+@|--- common.php@ - Contains OAuth wrapper functions and a few important variables.
+@|- complete_auth.php@ - Completes the authorization process. This process will have been started from @check_logged_in.php@ script.
 
 @|- js/@
 @|--- jquery.js/@ - jquery core file.

@@ -31,12 +31,13 @@ if (isset($_POST['logon_email']) && isset($_POST['logon_password'])) {
 		$active = $row['active'];
 		
 		$_SESSION['valid_user'] = $userid;
+		$_SESSION['login_failed'] = Null;
 		
 		
 		
     }
     else {
-		$_SESSION['login_failed'] = "<div class=\"fail\">Log in failed - Please try again!</div>";
+		$_SESSION['login_failed'] = 1;
 	}
 
 	if (isset($_SESSION['login_referal'])){
