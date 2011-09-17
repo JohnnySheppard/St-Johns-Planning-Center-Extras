@@ -13,7 +13,7 @@ if (isset($_SESSION['valid_user']) && $_SESSION['valid_user'] !=0){
 }
 ?>
 Please choose what you would like to do:<br>
-<a href=""></a><br>
+<a href="test.php">Test Page</a><br>
 <a href=""></a><br>
 <a href="login_display.php">Login</a><br>
 <a href="logout.php">Logout</a><br>
