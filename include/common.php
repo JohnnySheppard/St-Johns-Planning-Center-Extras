@@ -1,6 +1,6 @@
 <?php
 
-$callback_url = "http://www.johnnysheppard.com/stjohns/include/complete.php"; //this needs changing so it works out where the script is located. (Rather than having the complete address hard coded.)
+$callback_url = "http://www.johnnysheppard.com/rota2/include/complete.php"; //this needs changing so it works out where the script is located. (Rather than having the complete address hard coded.)
 
 $debug = true;
 $request_token_endpoint = "https://www.planningcenteronline.com/oauth/request_token";

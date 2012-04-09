@@ -1,0 +1,18 @@
+/**
+ *
+ * main.css
+ *
+ */
+
+.reply_C{
+	color: #008E00;
+}
+
+.reply_U{
+	color: #A85F00;
+}
+
+.reply_D{
+	color: #8E0000;
+	text-decoration: line-through;
+}

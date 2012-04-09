@@ -3,24 +3,17 @@
 require_once("include/check_logged_in.php");
 
 if (!check_logged_in()){
-	echo "False";
+	echo "Not Logged In";
 }
 
-// 4. Set Person id for example 1 and example 2
-$person_id = "1190740";
-
-/*$url = sprintf("https://www.planningcenteronline.com/people/$person_id.xml");
-$content = '<person><first-name>Johnny</first-name><last-name>Sheppard</last-name></person>';
-$response = get_pco_data($url,"PUT",$content);
-*/
 $url = sprintf("https://www.planningcenteronline.com/organization.xml");
 $response = get_pco_data($url);
 
 $organization = simplexml_load_string($response);
 
 foreach ($organization->{'service-types'}->{'service-type'} as $service){
-	echo "<h2>" . $service->name . "</h2>\n";
-	echo "<table border=1>\n";
+	echo "<label for=\"type_" . $service->id . "\">" . $service->name . "</lable><input type=\"checkbox\" name=\"type_" . $service->id . "\" id=\"type_" . $service->id . "\"><br>\n";
+	/*echo "<table border=1>\n";
 	$service_id = $service->id;
 	$url = sprintf("https://www.planningcenteronline.com/service_types/" . $service_id. "/plans.xml");
 	$response2 = get_pco_data($url);
@@ -29,7 +22,7 @@ foreach ($organization->{'service-types'}->{'service-type'} as $service){
 	foreach($plans->plan as $plan){
 		echo "<tr><td>" . $plan->{'plan-title'} . "&nbsp;</td><td>" . $plan->dates . "</td></tr>\n";
 	}
-	echo "</table>\n";
+	echo "</table>\n";*/
 }
 
 //echo $response;

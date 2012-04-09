@@ -7,11 +7,40 @@ require_once("common.php");
 session_start();
 
 $user_id = $user_firstname = $user_lastname = $user_email = $user_access_token = $user_access_token_secret = "";
+$try_to_login = 0;
 
 function check_logged_in(){
 	global $user_id, $user_firstname, $user_lastname, $user_email, $user_access_token, $user_access_token_secret;
 
-	if (isset($_SESSION['valid_user']) && ($_SESSION['valid_user'] > 0)){
+	//check cookie first. If it's there and gives us a valid user, then fill in the valid user session var.
+	if (isset($_COOKIE["login"])){
+		$query = "SELECT * FROM `pico_users` WHERE `login_token`='" . $_COOKIE["login"] . "'";
+		$result = mysql_query($query);
+		if ($result){
+			if (mysql_num_rows($result) == 1){
+				$row = mysql_fetch_array($result);
+				$user_id = $row["id"];
+				$user_firstname = $row["firstname"];
+				$user_lastname = $row["surname"];
+				$user_email = $row["email"];
+				$user_access_token = $row["access_token"];
+				$user_access_token_secret = $row["access_token_secret"];
+				$_SESSION['valid_user'] = $user_id;
+				//and check that the user is connected to Planning Center. If not, then connect them.
+				check_connected_to_pco($user_id);
+				
+				//return true
+				return true;
+			}
+			else {
+				$try_to_login = 1;
+			}
+		}
+		else {
+			$try_to_login = 1;
+		}
+	}
+	elseif ((isset($_SESSION['valid_user']) && ($_SESSION['valid_user'] > 0)) || ($try_to_login == 1)){
 		//User is logged in, so get some details from database
 		$query = "SELECT * FROM `pico_users` WHERE `id`=" . $_SESSION['valid_user'];
 		$result = mysql_query($query);

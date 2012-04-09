@@ -32,8 +32,10 @@ if (isset($_POST['logon_email']) && isset($_POST['logon_password'])) {
 		
 		$_SESSION['valid_user'] = $userid;
 		$_SESSION['login_failed'] = Null;
-		
-		
+		$rand_str = genRandomString();
+		$query2 = "UPDATE pico_users SET `login_token` = '" . $rand_str . "' WHERE email='" . $_POST['logon_email'] . "' AND password='" . $password . "'";
+		$result2 = mysql_query($query2);
+		setcookie("login",$rand_str,(time() + 15552000));
 		
     }
     else {
@@ -48,4 +50,13 @@ if (isset($_POST['logon_email']) && isset($_POST['logon_password'])) {
 	}
 }
 
+function genRandomString() {
+    $length = 20;
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+    $string = '';    
+    for ($p = 0; $p < $length; $p++) {
+        $string .= $characters[mt_rand(0, strlen($characters))];
+    }
+    return $string;
+}
 ?>
