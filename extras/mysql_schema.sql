@@ -28,3 +28,12 @@ CREATE TABLE IF NOT EXISTS `pico_users` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `firstname` (`firstname`,`surname`,`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+
+CREATE TABLE IF NOT EXISTS `pico_password_reset` (
+  `rand_str` varchar(20) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `date_time` int(11) NOT NULL,
+  PRIMARY KEY (`rand_str`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;

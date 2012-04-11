@@ -84,6 +84,7 @@ $is_logged_in = check_logged_in();
                     </fieldset>
                 </div>
                 <input type="submit" data-icon="arrow-r" data-iconpos="right" value="Log In" />
+				<center><a href="forgotten.php">Forgotten Password?</a></center>
 			</form>
 			</div>
         </div>
