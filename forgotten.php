@@ -28,8 +28,11 @@ if ((isset($_GET["email_input"])) && ($_GET["email_input"] != "")){
 	$mail->WordWrap = 50;    // set word wrap
 
 	$mail->IsHTML(true);    // set email format to HTML
-	$mail->Subject = "Here is the subject";
-	$mail->Body = "Hi<br>To Reset your password, please click the link: <a href\"http://www.johnnysheppard.com/rota2/reset.php?rand_str=" . $rand_str . "\">http://www.johnnysheppard.com/rota2/reset.php?rand_str=" . $rand_str . "</a>";
+	$mail->Subject = "Password Reset";
+	$body = "Hi<br><br>To reset your password, please click the link: http://www.johnnysheppard.com/rota2/reset.php?rand_str=" . $rand_str;
+	$body .= "<br><br>This link will only stay active for 1 week.";
+	$body .= "<br><br>Thanks.";
+	$mail->Body = $body;
 	$mail->Send(); // send message
 
 	echo '<div data-role="page" id="mail_sent">
