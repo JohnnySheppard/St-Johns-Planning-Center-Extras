@@ -1,5 +1,6 @@
 <?php
 require_once("include/check_logged_in.php");
+require_once("include/housekeeping.php");
 $is_logged_in = check_logged_in();
 ?>
 <!DOCTYPE html>
