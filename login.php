@@ -21,7 +21,7 @@ if (isset($_POST['logon_email']) && isset($_POST['logon_password'])) {
 		}
 		
 	}
-	$query = "SELECT * FROM pico_users WHERE email='" . $_POST['logon_email'] . "' AND password='" . $password . "'";
+	$query = "SELECT * FROM pico_users WHERE email='" . $_POST['logon_email'] . "' AND password='" . $password . "' AND `activated` = 1";
 	$result = mysql_query($query);
 	if (mysql_num_rows($result) > 0) {
     	$row = mysql_fetch_array($result);

@@ -164,6 +164,10 @@ function not_logged_in(){
 								document.write("If you have not connected this app to Planning Center (happens automatically the first time you log in), then PLEASE run this app from Safari rather than as an app started directly from the home screen, the first time you log in.<br><br> Otherwise the authentication won\'t work properly!");
 							}
 						</script>
+						<br><br>
+						<div>
+							If you have not already done so, please <a href="http://www.johnnysheppard.com/rota2/register.php">Register Here</a>
+						</div>
 					</div>
             </div>
 			</form>

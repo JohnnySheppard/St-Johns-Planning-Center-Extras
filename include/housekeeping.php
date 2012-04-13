@@ -8,4 +8,9 @@ $delete_date = time() - 604800;
 $query = "DELETE FROM `pico_password_reset` WHERE `date_time` <= " . $delete_date;
 $result = mysql_query($query);
 
+//Remove and old activations
+$query = "DELETE FROM `pico_activate` WHERE `date_time` <= " . $delete_date;
+$result = mysql_query($query);
+//STILL NEED TO DELETE ACTUAL USERS.
+
 ?>
