@@ -68,7 +68,7 @@ if ($saved == 0){
             <div data-role="content">
                 <div>';
 	if ($error != ""){
-		echo "<div style=\"color:red;\">" . $error . "</div>";
+		echo "<h4 style=\"color:red;\">" . $error . "</h4>";
 	}	
     echo '                Please enter your new password and click <b>Save</b>.
                 </div>

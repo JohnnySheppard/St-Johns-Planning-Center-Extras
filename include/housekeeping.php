@@ -10,7 +10,8 @@ $result = mysql_query($query);
 
 //Remove and old activations
 $query = "DELETE FROM `pico_activate` WHERE `date_time` <= " . $delete_date;
+$query = "DELETE `act`, `usr` FROM `pico_activate` AS `act`"
+	. " LEFT JOIN `pico_users` AS `usr` ON `act`.`id` = `usr`.`id`" 
+	. " WHERE `act`.`date_time` <= " . $delete_date;
 $result = mysql_query($query);
-//STILL NEED TO DELETE ACTUAL USERS.
-
 ?>

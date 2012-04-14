@@ -59,7 +59,7 @@ $is_logged_in = check_logged_in();
                     </b>
                     Johnny Sheppard
                 </div>
-                <a data-role="button" data-direction="reverse" data-transition="slidedown" href="#Home" data-icon="delete" data-iconpos="right">
+                <a data-role="button" data-direction="reverse" data-transition="slidedown" href="index.php" data-icon="delete" data-iconpos="right">
                     Close
                 </a>
             </div>
@@ -155,13 +155,16 @@ function not_logged_in(){
             </div>
 			<form action="plans.php" method="GET">
             <div data-role="content">
-					<div>
-						<h3>
-							You Must Log in to use this service!
+					<div>';
+	if ($_SESSION['login_failed'] == 1){
+		$data .= '<h4 style="color:red;">Logon Error. Please try again!</h4>' . "\n";
+	}
+	$data .= '					<h3>
+							You must Log In to use this service!
 						</h3>
 						<script type="application/javascript">
 							if (window.navigator.standalone == true){
-								document.write("If you have not connected this app to Planning Center (happens automatically the first time you log in), then PLEASE run this app from Safari rather than as an app started directly from the home screen, the first time you log in.<br><br> Otherwise the authentication won\'t work properly!");
+								document.write("<span style=\"color:red;\">IMPORTANT: If you have not connected this app to Planning Center (happens automatically the first time you log in), then PLEASE run this app from Safari rather than as an app started directly from the home screen, the first time you log in.<br><br> Otherwise the authentication won\'t work properly!</span>");
 							}
 						</script>
 						<br><br>

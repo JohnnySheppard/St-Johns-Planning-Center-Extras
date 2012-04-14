@@ -46,6 +46,9 @@ if ((isset($_POST["email_address"])) && ($_POST["email_address"] != "")){
 	if ($result){
 		$user_id = mysql_insert_id();
 	}
+	else {
+		$error = "Registration Failed. Are you already registered?";
+	}
 	if ($user_id > 0){
 		$rand_str = genRandomString();
 		$query = "INSERT INTO `pico_activate`(`id`,`rand_str`,`date_time`) VALUES(" . $user_id . ",'" . $rand_str . "'," . time() . ")";
@@ -68,6 +71,9 @@ if ((isset($_POST["email_address"])) && ($_POST["email_address"] != "")){
 			$mail->Body = $body;
 			$mail->Send(); // send message
 		}
+		else {
+			$error = "Registration Failed";
+		}
 	}
 }
 if ($saved == 0){
@@ -81,7 +87,7 @@ if ($saved == 0){
             <div data-role="content">
                 <div>';
 	if ($error != ""){
-		echo "<div style=\"color:red;\">" . $error . "</div>";
+		echo "<h4 style=\"color:red;\">" . $error . "</h4>\n";
 	}	
     echo '                Please enter your details and click <b>Save</b>.
                 </div>
