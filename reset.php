@@ -31,29 +31,33 @@ if ((isset($_POST["password"])) && (isset($_POST["confirm"])) && (isset($_POST["
 	if (($_POST["password"] != "") && ($_POST["password"] == $_POST["confirm"])){
 		$password = crypt($_POST["password"]);
 	}
-	
-	$query = "SELECT `user_id` FROM `pico_password_reset` WHERE `rand_str` = '" . $rand_str . "'";
-	$result = mysql_query($query);
-	if ($result){
-		if (mysql_num_rows($result) == 1){
-			$row = mysql_fetch_array($result);
-			$id = $row["user_id"];
-		}
+	else {
+		$error = "Passwords do NOT match!";
 	}
-	if ($id > 0){
-		$query = "UPDATE `pico_users` SET `password` = '" . $password . "' WHERE `id`=" . $id;
+	if ($password != ""){
+		$query = "SELECT `user_id` FROM `pico_password_reset` WHERE `rand_str` = '" . $rand_str . "'";
 		$result = mysql_query($query);
 		if ($result){
-			$saved = 1;
+			if (mysql_num_rows($result) == 1){
+				$row = mysql_fetch_array($result);
+				$id = $row["user_id"];
+			}
+		}
+		if ($id > 0){
+			$query = "UPDATE `pico_users` SET `password` = '" . $password . "' WHERE `id`=" . $id;
+			$result = mysql_query($query);
+			if ($result){
+				$saved = 1;
+			}
+			else {
+				$error = "Password Not Updated!";
+			}
+			$query = "DELETE FROM `pico_password_reset` WHERE `rand_str` = '" . $rand_str . "'";
+			$result = mysql_query($query);
 		}
 		else {
-			$error = "Password Not Updated!";
+			$error = "Could not find User in database!";
 		}
-		$query = "DELETE FROM `pico_password_reset` WHERE `rand_str` = '" . $rand_str . "'";
-		$result = mysql_query($query);
-	}
-	else {
-		$error = "Could not find User in database!";
 	}
 }
 
