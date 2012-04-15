@@ -161,6 +161,7 @@ function not_logged_in(){
 					<div>';
 	if ($_SESSION['login_failed'] == 1){
 		$data .= '<h4 style="color:red;">Logon Error. Please try again!</h4>' . "\n";
+		$_SESSION['login_failed'] = 0; //set to 0 so that it doesn't keep showing the error on reload.
 	}
 	$data .= '					<h3>
 							You must Log In to use this service!
