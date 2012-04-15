@@ -10,7 +10,7 @@ $user_id = $user_firstname = $user_lastname = $user_email = $user_access_token =
 $try_to_login = 0;
 
 function check_logged_in(){
-	global $user_id, $user_firstname, $user_lastname, $user_email, $user_access_token, $user_access_token_secret;
+	global $user_id, $user_firstname, $user_lastname, $user_email, $user_access_token, $user_access_token_secret, $user_fullname;
 
 	//check cookie first. If it's there and gives us a valid user, then fill in the valid user session var.
 	if (isset($_COOKIE["login"])){
@@ -22,6 +22,7 @@ function check_logged_in(){
 				$user_id = $row["id"];
 				$user_firstname = $row["firstname"];
 				$user_lastname = $row["surname"];
+				$user_fullname = $user_firstname . " " . $user_lastname;
 				$user_email = $row["email"];
 				$user_access_token = $row["access_token"];
 				$user_access_token_secret = $row["access_token_secret"];

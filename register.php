@@ -18,6 +18,9 @@
         </script>
         <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js">
         </script>
+		<?php
+			include("include/google_analytics.inc.php");
+		?>
     </head>
     <body>
 <?php
