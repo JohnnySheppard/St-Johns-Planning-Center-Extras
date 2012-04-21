@@ -24,7 +24,7 @@ $is_logged_in = check_logged_in();
 				echo'<li data-role="list-divider" role="heading">' . $value . '</li>' . "\n";
 				
 				foreach($plans->plan as $plan){
-					echo '<li data-theme="c"><a href="details.php?plan_id=' . $plan->id . '" data-transition="slide" data-prefetch>' . $plan->dates . '</a></li>' . "\n";
+					echo '<li data-theme="c"><a href="details.php?plan_id=' . $plan->id . '" data-transition="slide">' . $plan->dates . '</a></li>' . "\n";
 				}
 			}
 			echo '</ul>' . "\n";
