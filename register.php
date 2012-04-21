@@ -13,10 +13,11 @@
         <title>
 		SJ Rotas
         </title>
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js">
+        <link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css" />
+        <script src="js/jquery.min.js">
         </script>
-        <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js">
+        <script src="js/jquery.mobile-1.1.0.min.js">
+        </script>
     </head>
     <body>
 <?php
