@@ -14,8 +14,8 @@ else {
 		<h3>
 			St John's Rotas
 		</h3>
-		<a data-role="button" data-direction="reverse" data-transition="slide" href="#Plans" data-rel="back" data-icon="arrow-l" data-iconpos="left">Back</a>
-		<a data-role="button" data-direction="reverse" data-transition="slide" href="#Home" data-icon="home" data-iconpos="left">Home</a>
+		<a data-role="button" data-direction="reverse" data-transition="slidefade" href="#Plans" data-rel="back" data-icon="arrow-l" data-iconpos="left">Back</a>
+		<a data-role="button" data-direction="reverse" data-transition="slidefade" href="#Home" data-icon="home" data-iconpos="left">Home</a>
 	</div>
 	<div data-role="content">
 		<?php

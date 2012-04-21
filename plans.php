@@ -7,7 +7,7 @@ $is_logged_in = check_logged_in();
 		<h3>
 			St John's Rotas
 		</h3>
-		<a data-role="button" data-direction="reverse" data-transition="slide" href="#Home" data-icon="arrow-l" data-iconpos="left">Back</a>
+		<a data-role="button" data-direction="reverse" data-transition="slidefade" href="#Home" data-icon="arrow-l" data-iconpos="left">Back</a>
 	</div>
 	<div data-role="content">
 		<?php
@@ -24,7 +24,7 @@ $is_logged_in = check_logged_in();
 				echo'<li data-role="list-divider" role="heading">' . $value . '</li>' . "\n";
 				
 				foreach($plans->plan as $plan){
-					echo '<li data-theme="c"><a href="details.php?plan_id=' . $plan->id . '" data-transition="slide">' . $plan->dates . '</a></li>' . "\n";
+					echo '<li data-theme="c"><a href="details.php?plan_id=' . $plan->id . '" data-transition="slidefade">' . $plan->dates . '</a></li>' . "\n";
 				}
 			}
 			echo '</ul>' . "\n";
