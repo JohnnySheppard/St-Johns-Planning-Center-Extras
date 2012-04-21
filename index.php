@@ -26,10 +26,7 @@ $is_logged_in = check_logged_in();
 		<link rel="stylesheet" href="css/add2home.css">
 		<link rel="stylesheet" href="css/main.css">
 		<script type="application/javascript" src="js/add2home.js"></script>
-		<?php
-			include("include/google_analytics.inc.php");
-		?>
-    </head>
+	 </head>
     <body>
         <?php
 			if ($is_logged_in){
