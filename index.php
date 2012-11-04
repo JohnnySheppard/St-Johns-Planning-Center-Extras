@@ -93,6 +93,7 @@ $is_logged_in = check_logged_in();
 </html>
 <?php
 function home_page(){
+	global $is_logged_in;
 	$data =  '
 		<div data-role="page" id="Home">
             <div data-theme="b" data-role="header">
@@ -117,16 +118,18 @@ function home_page(){
 							Choose:
 						</legend>';
 				
-				$url = sprintf("https://www.planningcenteronline.com/organization.xml");
-				$response = get_pco_data($url);
+				if ($is_logged_in){
+					$url = sprintf("https://www.planningcenteronline.com/organization.xml");
+					$response = get_pco_data($url);
 
-				$organization = simplexml_load_string($response);
-				
-				foreach ($organization->{'service-types'}->{'service-type'} as $service){
-					$data .=  '<input name="type_' . $service->id . '" id="type_' . $service->id . '" type="checkbox" value="' . $service->name . '" />';
-					$data .=  '<label for="type_' . $service->id . '">';
-					$data .=  $service->name . '';
-					$data .=  '</label>';
+					$organization = simplexml_load_string($response);
+					
+					foreach ($organization->{'service-types'}->{'service-type'} as $service){
+						$data .=  '<input name="type_' . $service->id . '" id="type_' . $service->id . '" type="checkbox" value="' . $service->name . '" />';
+						$data .=  '<label for="type_' . $service->id . '">';
+						$data .=  $service->name . '';
+						$data .=  '</label>';
+					}
 				}
 				$data .=  '
 					</fieldset>
@@ -153,7 +156,7 @@ function not_logged_in(){
 			<form action="plans.php" method="GET">
             <div data-role="content">
 					<div>';
-	if ($_SESSION['login_failed'] == 1){
+	if ((isset($_SESSION['login_failed'])) && ($_SESSION['login_failed'] == 1)){
 		$data .= '<h4 style="color:red;">Logon Error. Please try again!</h4>' . "\n";
 		$_SESSION['login_failed'] = 0; //set to 0 so that it doesn't keep showing the error on reload.
 	}
